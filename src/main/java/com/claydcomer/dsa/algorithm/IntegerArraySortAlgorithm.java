@@ -3,6 +3,8 @@ package com.claydcomer.dsa.algorithm;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 @AllArgsConstructor
 public abstract class IntegerArraySortAlgorithm {
@@ -14,6 +16,10 @@ public abstract class IntegerArraySortAlgorithm {
     }
 
     public abstract void sort();
+
+    public void printIntegerArray() {
+        System.out.println(Arrays.toString(integersToSort));
+    }
 
     protected void swap(int[] array, int i, int j) {
         if(i != j) {
