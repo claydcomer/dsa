@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class ListNode<T>{
 
-    T nodeData;
-
-    ListNode<T> next;
+    private T nodeData;
+    private ListNode<T> next;
+    private ListNode<T> previous;
 
     public ListNode(T nodeData) {
         this.nodeData = nodeData;
