@@ -1,6 +1,7 @@
 package com.claydcomer.dsa;
 
-import com.claydcomer.dsa.datastructure.SimpleHashTable;
+import com.claydcomer.dsa.datastructure.hashtable.ChainedHashTable;
+import com.claydcomer.dsa.datastructure.hashtable.SimpleHashTable;
 import com.claydcomer.dsa.model.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +16,8 @@ public class DsaApplication {
 		Employee e2 = new Employee("John", "Doe", 4567);
 		Employee e3 = new Employee("Mary", "Smith", 22);
 		Employee e4 = new Employee("Mike", "Wilson", 3245);
-		Employee e5 = new Employee("Bill", "End", 78);
 
-		SimpleHashTable hashTable = new SimpleHashTable();
+		ChainedHashTable hashTable = new ChainedHashTable();
 
 		hashTable.put("Jones", e1);
 		hashTable.put("Doe", e2);
@@ -26,14 +26,13 @@ public class DsaApplication {
 
 		hashTable.printHashTable();
 
-		System.out.println("Retrieve key Wilson: " + hashTable.get("Wilson"));
-		System.out.println("Retrieve key Smith: " + hashTable.get("Smith"));
-
-		hashTable.remove("Wilson");
-		hashTable.remove("Jones");
-		hashTable.printHashTable();
-
-		System.out.println("Retrieve key Smith: " + hashTable.get("Smith"));
+//		System.out.println("Retrieve key Smith: " + hashTable.get("Smith"));
+//
+//		hashTable.remove("Doe");
+//		hashTable.remove("Jones");
+//		hashTable.printHashTable();
+//
+//		System.out.println("Retrieve key Smith: " + hashTable.get("Smith"));
 	}
 
 }

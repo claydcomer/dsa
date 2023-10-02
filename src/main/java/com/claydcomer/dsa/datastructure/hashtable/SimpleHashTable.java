@@ -1,4 +1,4 @@
-package com.claydcomer.dsa.datastructure;
+package com.claydcomer.dsa.datastructure.hashtable;
 
 import com.claydcomer.dsa.model.Employee;
 import com.claydcomer.dsa.model.StoredEmployee;
