@@ -10,6 +10,4 @@ public class DsaApplication {
 		SpringApplication.run(DsaApplication.class, args);
 	}
 
-
-
 }
