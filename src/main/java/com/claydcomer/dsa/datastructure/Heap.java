@@ -50,46 +50,45 @@ public class Heap {
     }
 
     private void fixHeapAbove(int index) {
-        int newNode = heap[index];
-
-        while(index > 0 && newNode > heap[getParent(index)]) {
+        int newValue = heap[index];
+        while (index > 0 && newValue > heap[getParent(index)]) {
             heap[index] = heap[getParent(index)];
             index = getParent(index);
         }
 
-        heap[index] = newNode;
+        heap[index] = newValue;
     }
 
     private void fixHeapBelow(int index, int lastHeapIndex) {
         int childToSwap;
 
-        while(index <= lastHeapIndex) {
+        while (index <= lastHeapIndex) {
             int leftChild = getChild(index, true);
             int rightChild = getChild(index, false);
-
-            if(leftChild <= lastHeapIndex) {
+            if (leftChild <= lastHeapIndex) {
                 if (rightChild > lastHeapIndex) {
                     childToSwap = leftChild;
-                } else {
+                }
+                else {
                     childToSwap = (heap[leftChild] > heap[rightChild] ? leftChild : rightChild);
                 }
 
-
                 if (heap[index] < heap[childToSwap]) {
-                    int temp = heap[index];
+                    int tmp = heap[index];
                     heap[index] = heap[childToSwap];
-                    heap[childToSwap] = temp;
-                } else {
+                    heap[childToSwap] = tmp;
+                }
+                else {
                     break;
                 }
 
                 index = childToSwap;
-            } else {
+            }
+            else {
                 break;
             }
         }
     }
-
     public boolean isFull() {
         return size == heap.length;
     }
@@ -114,5 +113,16 @@ public class Heap {
                 System.out.print(", ");
         }
         System.out.println();
+    }
+
+    public void sort() {
+        int lastHeapIndex = size - 1;
+        for (int i = 0; i < lastHeapIndex; i++) {
+            int tmp = heap[0];
+            heap[0] = heap[lastHeapIndex - i];
+            heap[lastHeapIndex - i] = tmp;
+
+            fixHeapBelow(0, lastHeapIndex - i - 1);
+        }
     }
 }
